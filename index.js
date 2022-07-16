@@ -22,5 +22,5 @@ app.get('/usuario', (request, response)=>{
 })
 
 app.listen(port, () =>{
-    console.log('API corriendo en el puerto ${port}');
+    console.log(`API corriendo en el puerto ${port}`);
 });
