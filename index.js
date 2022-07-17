@@ -22,13 +22,8 @@ app.get('/', async (request,response, next) =>{
     }
 });
 
-//area de end point
-app.get('/', (request,response) =>{
-    response.json({info: 'la api esta online'})
-});
-
 //usuarios
-app.get('/usuarios',usuarioService.getUsuarios,)
+app.get('/usuario',usuarioService.getUsuarios,)
 
 app.listen(port, () =>{
     console.log(`API corriendo en el puerto ${port}`);
