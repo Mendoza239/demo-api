@@ -23,7 +23,9 @@ app.get('/', async (request,response, next) =>{
 });
 
 //usuarios
-app.get('/usuario',usuarioService.getUsuarios,)
+app.get('/usuario',(request,response)=>{response.json({id:1,
+    nombre:'Ismael',apellido:'Mendoza'});
+  });
 
 app.listen(port, () =>{
     console.log(`API corriendo en el puerto ${port}`);
