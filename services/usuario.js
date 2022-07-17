@@ -2,7 +2,7 @@ const { request, response } = require('express');
 const {pool} = require('../db/conexiondb');
 const handle =require('../helpers/handlersErrors');
 
-const GET_ALL_QUERY='SELECT * FROM usuario WHERE eliminado = false';
+const GET_ALL_QUERY='SELECT * FROM public.usuario WHERE eliminado = false';
 
 const getUsuarios = (request,response) =>{
     console.log("@getUsuarios");
