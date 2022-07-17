@@ -15,7 +15,7 @@ app.use(
 app.get('/', async (request,response, next) =>{
     try {
         const usuarios = await getConnection();
-        const rta = await usuarios.query('SELECT * FROM usuarios');
+        const rta = await usuarios.query('SELECT * FROM public.usuarios');
         response.json(rta.rows)
     } catch (error) {
         next(error);
