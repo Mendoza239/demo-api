@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const { request, response } = require('express');
 const port = process.env.PORT || 5000;
 
-const usuarioService = require('./services/usuario');
+const getConnection = require('../db/conexiondb');
 
 app.use(bodyParser.json());
 app.use(
@@ -13,12 +12,14 @@ app.use(
     })
 );
 
-app.use((req,res, next) =>{
-    res.setHeader('Acess-Control-Allow-Origin','*');
-    res.setHeader('Acess-Control-Allow-Methods','GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Acess-Control-Allow-Headers','X-Requested, Whith,content-type, x-acess-token');
-    res.setHeader('Acess-Control-Allow-Credentials', true);
-    next();
+app.get('/', async (request,response, next) =>{
+    try {
+        const usuarios = await getConnection();
+        const rta = await usuarios.query('SELECT * FROM "public"."usuarios" LIMIT 100');
+        response.json(rta.rows)
+    } catch (error) {
+        next(error);
+    }
 });
 
 //area de end point

@@ -1,24 +1,17 @@
-const Pool = require('pg').Pool
+const {Client} = require('pg');
 
 
-const dbParams = {
-    user:"qxibmjic",
-    host:"heffalump.db.elephantsql.com (heffalump-01)",
-    database:"qxibmjic",
-    password:"xt4k5HNR1y8Pb-bU-6bagbkfEhfb9UH_",
-    port:5432,
-    ssl: {rejectUnautorized:false}
+async function getConnection() {
+    const client = new Client({
+        user:"qxibmjic",
+        host:"heffalump.db.elephantsql.com (heffalump-01)",
+        database:"qxibmjic",
+        password:"xt4k5HNR1y8Pb-bU-6bagbkfEhfb9UH_",
+        port:5432,
+    });
+    await client.connect();
+    return client;
 }
 
-const pool = new Pool({
-    user: dbParams.user,
-    host: dbParams.host,
-    database: dbParams.database,
-    password: dbParams.password,
-    port: dbParams.port,
-    ssl: {rejectUnautorized:false}
-})
 
-module.exports = {
-    pool
-};
+module.exports = getConnection;
