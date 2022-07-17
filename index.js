@@ -15,7 +15,7 @@ app.use(
 app.get('/', async (request,response, next) =>{
     try {
         const usuarios = await getConnection();
-        const rta = await usuarios.query('SELECT * FROM "public"."usuarios" LIMIT 100');
+        const rta = await usuarios.query('SELECT * FROM usuarios');
         response.json(rta.rows)
     } catch (error) {
         next(error);
