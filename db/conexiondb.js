@@ -1,12 +1,12 @@
-import { Client } from 'pg';
+const { Client } = require ('pg');
 
 
 async function getConnection() {
     const client = new Client({
-        user:"qxibmjic",
-        host:"heffalump.db.elephantsql.com",
-        database:"qxibmjic",
-        password:"xt4k5HNR1y8Pb-bU-6bagbkfEhfb9UH_"
+        user:'ofxfctfq',
+        host:'heffalump.db.elephantsql.com',
+        database:'ofxfctfq',
+        password:'hzrm1pn7s0p8AKs7z45JGweEGfdyeBZN'
     });
     await client.connect();
     return client;

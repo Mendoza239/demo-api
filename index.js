@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 5000;
 
-const getConnection = require('./db/conexiondb').default;
+const getConnection = require('./db/conexiondb')
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(
