@@ -1,7 +1,7 @@
 const { pool } = require('../db/conexion');
 const handle = require('../helpers/handlersErrors');
 
-const GET_ALL_QUERY = "SELECT * FROM usuario WHERE eliminado = false";
+const GET_ALL_QUERY = "SELECT * FROM public.usuarios";
 
 const getUsuarios = (request, response) => {
     console.log("@getUsuarios");
