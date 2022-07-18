@@ -2,7 +2,7 @@ const Pool = require('pg').Pool
 
 const dbParams = {
     user: 'qxibmjic',
-    host: 'heffalump.db.elephantsql.com (heffalump-01)',
+    host: 'postgres://qxibmjic:xt4k5HNR1y8Pb-bU-6bagbkfEhfb9UH_@heffalump.db.elephantsql.com/qxibmjic',
     database: 'qxibmjic',
     password: 'xt4k5HNR1y8Pb-bU-6bagbkfEhfb9UH_',
     ssl: { rejectUnauthorized: false }
