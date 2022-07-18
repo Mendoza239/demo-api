@@ -1,4 +1,4 @@
-const {Client} = require('pg');
+import { Client } from 'pg';
 
 
 async function getConnection() {
@@ -13,4 +13,4 @@ async function getConnection() {
 }
 
 
-module.exports = getConnection;
+export default getConnection;
