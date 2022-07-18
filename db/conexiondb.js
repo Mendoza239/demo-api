@@ -13,4 +13,4 @@ async function getConnection() {
 }
 
 
-export default getConnection;
+module.exports = getConnection;
