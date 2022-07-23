@@ -31,7 +31,7 @@ const getUsuarios = async(request, response) =>{
 const postUsuarios= async(request,response) =>{
     try {
         const results = await pool.query("insert into si_usuario (id, nombre, apellidos, correo, clave, fecha_genero, eliminado) values(default,'roberto', 'martinez', 'robert354@gmail.com','hsldah673ejg',default,default)");
-        return results;
+        response.json(getUsuarios.rows);
     } catch (e) {
         handle.callbackErrorNoControlado(e,response);
     }
@@ -40,6 +40,7 @@ const postUsuarios= async(request,response) =>{
 const updateUsuarios = async(request,response)=>{
     try {
         const results = await pool.query("update si_usuario set apellidos = 'Menendez', eliminado = true");
+        response.json(getUsuarios.rows);
     } catch (e) {
         handle.callbackErrorNoControlado(e,response);
     }
