@@ -1,10 +1,10 @@
 const Pool = require('pg').Pool
 
 const dbParams = {
-    user: 'oawfbcgxdiimbc',
-    host: 'ec2-107-20-167-241.compute-1.amazonaws.com',
-    database: 'de55f1cvhglsav',
-    password: '06f8ef56b8f00bedce7408323613a150e25e41e8f3c7db39c1f344a57d0ae7bc',
+    user: 'qxibmjic',
+    host: 'heffalump.db.elephantsql.com',
+    database: 'qxibmjic',
+    password: 'xt4k5HNR1y8Pb-bU-6bagbkfEhfb9UH_',
     port: 5432,
     ssl: { rejectUnauthorized: false }
 }
