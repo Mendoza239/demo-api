@@ -30,6 +30,8 @@ app.get('/', (request, response) => {
 });
 
 app.get('/usuarios', usuarioService.getUsuarios);
+app.post('/usuarios', usuarioService.postUsuarios);
+app.put('/usuarios', usuarioService.updateUsuarios)
 
 app.listen(port, () => {
     console.log(`API corriendo en el puerto ${port}`)
