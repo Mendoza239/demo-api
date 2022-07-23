@@ -1,26 +1,36 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const { request, response } = require('express');
+
+const usuarioService = require('./services/usuario');
+
 const port = process.env.PORT || 5000;
 
-app.use(bodyParser.json());
+//Es un middleware que serializa los cuerpos de las respuestas a notacón JSON
+app.use(bodyParser.json())
 app.use(
     bodyParser.urlencoded({
-        extended:true,
+        extended: true,
     })
 );
 
-//area de end point
-app.get('/', (request,response) =>{
-    response.json({info: 'la api esta online'})
+// Permite la conexiòn a clientes no browser
+app.use((req, res, next) => {   
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,x-access-token'); // If needed 
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+    next();
+});
+// bloque allows
+
+
+app.get('/', (request, response) => {
+    response.json({ info: 'La api está online' })
 });
 
-//usuarios
-app.get('/usuario', (request, response)=>{
-    response.json({id:1, nombre:'Ismael', apellidos:'Mendoza'});
-})
+app.get('/usuarios', usuarioService.getUsuarios);
 
-app.listen(port, () =>{
-    console.log(`API corriendo en el puerto ${port}`);
+app.listen(port, () => {
+    console.log(`API corriendo en el puerto ${port}`)
 });
